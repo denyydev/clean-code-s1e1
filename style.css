@@ -5,28 +5,28 @@ body {
   font-family: lato, sans-serif;
 }
 
-.aaa {
+.header {
   width: 500px;
   margin: 0 auto;
   display: block;
   text-align: right;
 }
 
-.aaa img {
+.header img {
   width: 100%;
 }
 
-.aaa .more-inf {
+.header .info-link {
   font-family: fantasy, cursive;
 }
 
 @media (max-width: 768px) {
-  .aaa {
+  .header {
     text-align: center;
   }
 }
 
-.centered-main-page-element {
+.content {
   display: block;
   width: 500px;
   margin: 0 auto 0;
@@ -44,7 +44,7 @@ body {
 
 ul {
   margin: 0;
-  padding: 0px;
+  padding: 0;
 }
 
 li,
@@ -59,7 +59,7 @@ button {
 
 button {
   background: none;
-  border: 0px;
+  border: 0;
   color: #888;
   font-size: 15px;
   width: 60px;
@@ -71,7 +71,6 @@ button:hover {
   color: #3a3a3a;
 }
 
-/* heading */
 h3,
 label[for="new-task"] {
   color: #333;
@@ -100,7 +99,6 @@ input[type="text"]:focus {
   color: #333;
 }
 
-/* new task */
 label[for="new-task"] {
   display: block;
   margin: 0 0 20px;
@@ -110,7 +108,6 @@ input#new-task {
   width: 318px;
 }
 
-/* task list */
 li {
   overflow: hidden;
   padding: 20px 0;
@@ -139,23 +136,21 @@ li > input[type="text"] {
   width: 226px;
 }
 
-button.delete img {
+button.delete-btn img {
   height: 2em;
   transform: rotatez(45deg);
   transition: transform 200ms ease-in;
 }
 
-button.delete img:hover {
+button.delete-btn img:hover {
   transform: rotatez(0);
 }
 
-/* completed */
-ul#completed-tasks label {
+ul#done-tasks label {
   text-decoration: line-through;
   color: #888;
 }
 
-/* edit task */
 ul li input[type="text"] {
   display: none;
 }
