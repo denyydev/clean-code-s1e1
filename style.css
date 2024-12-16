@@ -5,46 +5,46 @@ body {
   font-family: lato, sans-serif;
 }
 
-.header-section {
+.header {
   width: 500px;
   margin: 0 auto;
   display: block;
   text-align: right;
 }
 
-.header-section img {
+.header img {
   width: 100%;
 }
 
-.header-section .more-info-link {
+.header .info-link {
   font-family: fantasy, cursive;
 }
 
 @media (max-width: 768px) {
-  .header-section {
+  .header {
     text-align: center;
   }
 }
 
-.main-content {
+.content {
   display: block;
   width: 500px;
   margin: 0 auto 0;
 }
 
-.task-input {
+.task {
   width: 56%;
   display: inline-block;
   flex-grow: 1;
 }
 
-.task-input-wrapper {
+.task-row-wrapper {
   display: flex;
 }
 
 ul {
   margin: 0;
-  padding: 0px;
+  padding: 0;
 }
 
 li,
@@ -59,7 +59,7 @@ button {
 
 button {
   background: none;
-  border: 0px;
+  border: 0;
   color: #888;
   font-size: 15px;
   width: 60px;
@@ -72,7 +72,7 @@ button:hover {
 }
 
 h3,
-label[for="task-name-input"] {
+label[for="new-task"] {
   color: #333;
   font-weight: 700;
   font-size: 15px;
@@ -95,7 +95,20 @@ input[type="text"] {
   color: #888;
 }
 
-.task-item {
+input[type="text"]:focus {
+  color: #333;
+}
+
+label[for="new-task"] {
+  display: block;
+  margin: 0 0 20px;
+}
+
+input#new-task {
+  width: 318px;
+}
+
+li {
   overflow: hidden;
   padding: 20px 0;
   border-bottom: 1px solid #eee;
@@ -104,21 +117,49 @@ input[type="text"] {
   align-items: center;
 }
 
-.task-item > * {
+li > * {
   vertical-align: middle;
 }
 
-.task-label {
-  padding-left: 10px;
-  font-size: 18px;
+li > input[type="checkbox"] {
+  margin: 0 10px;
 }
 
-button.delete-button img {
+li > label {
+  padding-left: 10px;
+  box-sizing: border-box;
+  font-size: 18px;
+  width: 226px;
+}
+
+li > input[type="text"] {
+  width: 226px;
+}
+
+button.delete-btn img {
   height: 2em;
   transform: rotatez(45deg);
   transition: transform 200ms ease-in;
 }
 
-button.delete-button img:hover {
+button.delete-btn img:hover {
   transform: rotatez(0);
+}
+
+ul#done-tasks label {
+  text-decoration: line-through;
+  color: #888;
+}
+
+ul li input[type="text"] {
+  display: none;
+}
+
+ul li.edit-mode input[type="text"] {
+  display: inline-block;
+  width: 224px;
+}
+
+ul li.edit-mode label {
+  display: none;
 }
