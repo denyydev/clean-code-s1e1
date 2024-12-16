@@ -9,8 +9,8 @@
 
 var taskInput = document.getElementById("new-task"); // Add a new task.
 var addButton = document.getElementsByTagName("button")[0]; // first button
-var incompleteTaskHolder = document.getElementById("incompleteTasks"); // ul of #incompleteTasks
-var completedTasksHolder = document.getElementById("completed-tasks"); // completed-tasks
+var incompleteTaskHolder = document.getElementById("incomplete-tasks"); // ul of #incomplete-tasks
+var completedTasksHolder = document.getElementById("completed-tasks"); // ul of #completed-tasks
 
 // New task list item
 var createNewTaskElement = function(taskString) {
@@ -75,11 +75,11 @@ var editTask = function() {
   var editInput = listItem.querySelector("input[type=text]");
   var label = listItem.querySelector("label");
   var editBtn = listItem.querySelector(".edit");
-  var containsClass = listItem.classList.contains("editMode");
+  var containsClass = listItem.classList.contains("edit-mode");
 
-  // If class of the parent is .editmode
+  // If class of the parent is .edit-mode
   if (containsClass) {
-    // switch to .editmode
+    // switch to .edit-mode
     // label becomes the inputs value.
     label.innerText = editInput.value;
     editBtn.innerText = "Edit";
@@ -88,8 +88,8 @@ var editTask = function() {
     editBtn.innerText = "Save";
   }
 
-  // toggle .editmode on the parent.
-  listItem.classList.toggle("editMode");
+  // toggle .edit-mode on the parent.
+  listItem.classList.toggle("edit-mode");
 }
 
 // Delete task.
@@ -117,7 +117,7 @@ var taskIncomplete = function() {
   console.log("Incomplete Task...");
   // Mark task as incomplete.
   // When the checkbox is unchecked
-  // Append the task list item to the #incompleteTasks.
+  // Append the task list item to the #incomplete-tasks.
   var listItem = this.parentNode;
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskCompleted);
@@ -152,13 +152,13 @@ var bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
 // cycle over incompleteTaskHolder ul list items
 // for each list item
 for (var i = 0; i < incompleteTaskHolder.children.length; i++) {
-  // bind events to list items chldren(tasksCompleted)
+  // bind events to list items children (taskCompleted)
   bindTaskEvents(incompleteTaskHolder.children[i], taskCompleted);
 }
 
 // cycle over completedTasksHolder ul list items
 for (var i = 0; i < completedTasksHolder.children.length; i++) {
-  // bind events to list items chldren(tasksIncompleted)
+  // bind events to list items children (taskIncomplete)
   bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
 }
 
